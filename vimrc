@@ -1,5 +1,14 @@
 let mapleader=" "
 
+" ===
+" === Auto load for first time uses
+" ===
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+endif
 
 " ===
 " === System
@@ -100,15 +109,10 @@ noremap s <nop>
 noremap <C-s> :w<CR>
 noremap <C-q> :q<CR>
 noremap <C-r> :source $HOME/.vim/vimrc<CR>
-" 写入
-noremap w i
+
 " 方向
-noremap i k
-noremap k j
-noremap j h
-noremap l l
-noremap I 5k
-noremap K 5j
+noremap J 5j
+noremap K 5k
 " 搜索进行上下查找
 noremap = nzz
 noremap - Nzz
@@ -234,7 +238,11 @@ colorscheme snazzy
 let g:SnazzyTransparent = 1
 let g:lightline = { 'colorscheme': 'snazzy', }
 
-
+" ===
+" === NERDTree
+" === :help :NERDTree
+" ===
+map tt :NERDTreeToggle<CR>
 
 
 
